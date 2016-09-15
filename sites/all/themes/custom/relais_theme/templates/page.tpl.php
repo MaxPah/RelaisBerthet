@@ -90,7 +90,7 @@
         Sans interruptions<br>
         Service Continu<br>
         Près du Marché étang sec<br>
-        Tel: 0101010101<br>
+        Tel: 01.39.69.31.64<br>
       </p>
     </section>
 
