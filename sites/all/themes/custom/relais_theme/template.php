@@ -4,13 +4,14 @@
  * Implements theme_preprocess_page().
  */
 function relais_theme_preprocess_page(&$vars) {
+  global $base_url, $base_path;
   $main_menu = menu_tree_all_data('main-menu');
 
   $site_frontpage = variable_get('site_frontpage', 'node');
 
   $vars['relais_main_menu'][] = array(
     'title' => t('Accueil'),
-    'href' => $site_frontpage,
+    'href' => $base_url . $base_path .$site_frontpage,
   );
 
   if ($main_menu && !empty($main_menu)) {
