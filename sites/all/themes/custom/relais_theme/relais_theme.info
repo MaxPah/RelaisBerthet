@@ -1,0 +1,17 @@
+core = 7.x
+name = relais_theme
+description = Relais Berthet
+
+base theme = bootstrap
+
+version = "7.x-1.0"
+project = "RelaisBerthet"
+
+regions[header] = Header
+regions[content] = Content
+regions[footer] = Footer
+
+stylesheets[all][] = css/relais.css
+stylesheets[all][] = css/footer.css
+
+scripts[] = js/relais.js

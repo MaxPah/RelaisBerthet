@@ -1,0 +1,32 @@
+footer{ width:100%; margin:0 auto 0 auto; padding:0; background-color:#1d1d1b; position: relative;}
+footer #social{position: relative; width: 100%; margin: 0 auto 0 auto; padding: 0; min-height: 340px;}
+footer #social  p{font-size:1.6em; margin:0;  color:#b7b7b6; font-weight:lighter;}
+footer  #social #map{display:inline-block; margin: 50px 0 0 0; width: 49%; padding: 0px 50px;}
+footer  #social #map #base{width:250px; height:200px; position:absolute; bottom:10px; right:0;}
+footer  #social h4{width:100%;  font-size:0.9em;  font-weight:lighter; line-height:1.3em; padding:0 0 0 15px; margin:0; display:block; border-left:solid 2px #14bec9;  color:white;}
+footer  #social #map #base hr{width:56px; position:absolute; top:48px; left:-57px; border:solid 1px #14bec9;}
+footer #social #reseau{display: inline-block; margin: 0; width: 49%; vertical-align: top; padding: 0 50px; border-left: solid 1px #ffffff; margin-top: 50px;}
+footer #social #reseau .wrapper-socials{margin-top: 20px;}
+footer #social #reseau a{ margin-top: 20px; margin-right: 20px;}
+footer #social #reseau .socials{height: 80px; width: 80px;}
+footer #social nav{bottom:10px; display:inline-block; margin:0 auto; width: 100%; padding: 0 30px; font-size: 25px;margin-top: 30px; margin-bottom: 20px;}
+footer #social nav ul{margin:0; padding:0; width:100%;}
+footer #social nav li{display:inline-block; margin:0px; padding:0;  list-style:none; }
+footer #social nav li a{ display:block;  color:white;  padding:10px 15px;font-size:0.9em; border-bottom:solid 1px transparent;font-weight:lighter; text-decoration:none;  z-index:10; -moz-transition: all 0.4s ease; -webkit-transition: all 0.4s ease; transition: all 0.4s ease;}
+footer #social nav li ul{display:block; position:absolute; top:50px; left:0;}
+footer #social nav li ul li a{font-size:0.7em; padding:2px 5px;}
+footer #social nav li a:hover{border-bottom:solid 1px white;}
+
+@media screen and (max-width: 780px) {
+    footer #social #reseau,
+    footer #social #map {
+        width: 100%;
+    }
+    footer #social #reseau .socials {
+        height: 40px;
+        width: 40px;
+    }
+    footer #social #reseau {
+        border-left: none;
+    }
+}

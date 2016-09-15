@@ -1,0 +1,4 @@
+name = relais
+description = Module de toute la conf
+core = 7.x
+package = RelaisBerthet
