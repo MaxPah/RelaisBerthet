@@ -1147,6 +1147,8 @@ Configuration of which installation profile and database to use in done in
     <!-- Set property to prevent target from being executed multiple times -->
     <property name="project.installed" value="true"/>
   </target>
+    
+  <target name="enable-module" depends="setup-phing-drush"></target>
 
   <!-- ### Clone a git repository -->
   <target name="setup-git-repo">
