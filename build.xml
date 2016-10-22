@@ -120,14 +120,13 @@ time and is largely obsolete when using GitHub. -->
 
 <!-- ### Verify code consistency
 
-Make sure that our code is clean and functional. -->
+Make sure that our code is clean and functional. check-js-debug, -->
   <target name="verify" depends="init,
                                  clean,
                                  lint-php-custom,
                                  lint-js-custom,
                                  lint-css-custom,
                                  check-php-debug,
-                                 check-js-debug,
                                  simpletest"/>
 
 <!-- ### Analyze code
@@ -181,7 +180,7 @@ Check files for syntax errors. -->
   <target name="lint-php-custom"
           description="Check custom PHP files for syntax errors using PHPLint"
           depends="init">
-    <phplint haltonfailure="false">
+    <phplint haltonfailure="true">
       <fileset refid="src.php.custom" />
     </phplint>
   </target>
@@ -253,13 +252,13 @@ from parent `lint-js` targets. -->
              dir="${jslint4java.dir}"
              proxy="${phing.httpget.proxy}" />
     <unzip file="${jslint4java.dir}/${jslint4java.zipfile}"
-           todir="${jslint4java.dir}" />
+           todir="${jslint4java.dir}" /> 
 
     <!-- Other targets use this property to determine the location of the
          `jslint4java.jar` file -->
     <property name="jslint4java.file"
  value="${jslint4java.dir}/${jslint4java.basename}/${jslint4java.basename}.jar"/>
-
+   
     <!-- Set property to prevent unnecessary additional invocations of this
          target -->
     <property name="project.jslint4java.setup" value="true" />
@@ -368,7 +367,7 @@ from parent `lint-css` targets. -->
             <equals arg1="${csslint.break.errors}" arg2="" />
           </not>
           <then>
-            <fail message="CSS error detected in file ${absfilename}" />
+            <!-- <fail message="CSS error detected in file ${absfilename}" /> -->
           </then>
         </if>
       </then>
@@ -414,6 +413,8 @@ them in comments as well. -->
     </phingcall>
   </target>
 
+  <!--
+  @TODO
   <target name="check-js-debug"
           description="Check custom Javascript code for debug statements">
     <phingcall target="check-debug">
@@ -422,6 +423,7 @@ them in comments as well. -->
       <property name="debug.fileset" value="src.js.custom"/>
     </phingcall>
   </target>
+  -->
 
   <!-- #### Check a fileset for debug code -->
   <target name="check-debug"
@@ -518,6 +520,7 @@ statistics. -->
           depends="init, setup-phing-phploc">
     <!-- Suffixes should be the same as included in the
          src.php filesets -->
+    <php expression="include('/var/lib/jenkins/.composer/vendor/autoload.php')"/>
     <phploc reportType="csv"
             reportName="phploc" reportDirectory="${project.logdir}"
             suffixes="php,module,inc,install,profile,test" countTests="true">
@@ -1127,9 +1130,11 @@ Configuration of which installation profile and database to use in done in
   <target name="site-install"
           depends="init, setup-phing-drush"
           unless="project.installed">
-    <drush command="site-install" assume="yes">
+    <drush command="site-install" assume="yes" haltonerror="false">
       <option name="db-url">${drupal.db.url}</option>
-      <param>${drupal.profile}</param>
+      <option name="y"></option>
+      <option name="locale">'en'</option>
+      <param>${drupal.profile} install_configure_form.update_status_module='array(FALSE,FALSE)'</param>
     </drush>
     <!-- Fix permissions for the default site directory and settings. The
          owner must be able to delete the directories during subsequent
