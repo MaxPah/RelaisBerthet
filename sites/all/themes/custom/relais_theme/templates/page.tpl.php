@@ -111,7 +111,7 @@
           <?php foreach ($variables['relais_main_menu'] as $key => $menu_item): ?>
             <li class="menu-item menu-item-type-post_type menu-item-object-page">
               <?php if(isset($menu_item['href']) && isset($menu_item['title'])): ?>
-                <a href="<?php print $menu_item['href']; ?>"><?php print $menu_item['title']; ?></a>
+                <a href="<?php print drupal_get_path_alias($menu_item['href']); ?>"><?php print $menu_item['title']; ?></a>
               <?php endif; ?>
             </li>
           <?php endforeach; ?>

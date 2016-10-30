@@ -14,7 +14,7 @@
         <li class="main-menu-head">
           <div class='title'>
               <?php if ($item['#title'] == 'Nous contacter'): ?>
-                <a href="<?php print base_path() . $item['#href']; ?>">
+                <a href="<?php print drupal_get_path_alias(base_path() . $item['#href']); ?>">
                   <?php print $item['#title']; ?>
                 </a>
               <?php else: ?>
@@ -42,7 +42,7 @@
           <?php foreach ($item['#below'] as $sub_key => $sub_item): ?>
             <?php if (is_int($sub_key)): ?>
               <li>
-                <a href="<?php print base_path() .  $sub_item['#href']; ?>">
+                <a href="<?php print drupal_get_path_alias(base_path() .  $sub_item['#href']); ?>">
                   <?php print $sub_item['#title']; ?>
                 </a>
               </li>
